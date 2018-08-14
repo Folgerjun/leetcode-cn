@@ -51,4 +51,10 @@ public class KeyboardRow {
 		}
 		return ls.toArray(new String[ls.size()]);
 	}
+	
+	/**
+	 * Java8 一行代码
+	 */
+	// return Stream.of(words).filter(s ->
+	// s.toLowerCase().matches("[qwertyuiop]*|[asdfghjkl]*|[zxcvbnm]*")).toArray(String[]::new);
 }
