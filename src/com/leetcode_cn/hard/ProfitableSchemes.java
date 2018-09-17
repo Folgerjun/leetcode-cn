@@ -51,7 +51,6 @@ public class ProfitableSchemes {
 	}
 
 	public int profitableSchemes(int G, int P, int[] group, int[] profit) {
-
 		int MOD = 1_000_000_007;
 		int N = group.length;
 		long[][][] dp = new long[2][P + 1][G + 1];
@@ -87,6 +86,30 @@ public class ProfitableSchemes {
 			ans += x;
 
 		return (int) ans;
+	}
+
+	/**
+	 * 讨论中解法
+	 * 
+	 * @param G
+	 * @param P
+	 * @param group
+	 * @param profit
+	 * @return
+	 */
+	public int profitableSchemes1(int G, int P, int[] group, int[] profit) {
+		int[][] dp = new int[P + 1][G + 1];
+		dp[0][0] = 1;
+		int res = 0, mod = (int) 1e9 + 7;
+		for (int k = 0; k < group.length; k++) {
+			int g = group[k], p = profit[k];
+			for (int i = P; i >= 0; i--)
+				for (int j = G - g; j >= 0; j--)
+					dp[Math.min(i + p, P)][j + g] = (dp[Math.min(i + p, P)][j + g] + dp[i][j]) % mod;
+		}
+		for (int x : dp[P])
+			res = (res + x) % mod;
+		return res;
 	}
 
 }
