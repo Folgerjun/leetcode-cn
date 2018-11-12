@@ -64,7 +64,8 @@ public class CombinationSum {
 		if (remain < 0) // return 或者进行 add 操作后就开始执行弹出尾部元素 塞入下个元素
 			return;
 		else if (remain == 0)
-			list.add(tempList);
+			list.add(new ArrayList<>(tempList)); // 这里需要注意不能直接 list.add(tempList),最终 tempList 所指向的对象是空的,
+													// 所以需要 new 一个新对象，将值复制进去
 		else {
 			for (int i = index; i < nums.length; i++) {
 				tempList.add(nums[i]); // 挨个塞入
