@@ -47,15 +47,17 @@ public class PermutationsII {
 			return;
 		}
 		for (int i = 0; i < nums.length; i++) {
-			if (used[i]) // 已经标记过的略过
+			// 已经标记过的略过
+			if (used[i])
 				continue;
-			if (i > 0 && nums[i - 1] == nums[i] && !used[i - 1]) // 数字有重复的 前几个先略过
+			// 数字有重复的 说明刚释放的值与该值一样 略过
+			if (i > 0 && nums[i - 1] == nums[i] && !used[i - 1])
 				continue;
 			used[i] = true; // 标记使用
 			permuteUnique.add(nums[i]); // 该数字加入集合
 			// 重复操作 选择剩余数字
 			dfs(nums, used, permuteUniques, permuteUnique);
-			// 当 出栈时将最后一个数从集合中删除 同时该数恢复未使用状态 继续操作
+			// 当出栈时将最后一个数从集合中删除 同时该数恢复未使用状态 继续操作
 			used[i] = false;
 			permuteUnique.remove(permuteUnique.size() - 1);
 		}
