@@ -60,7 +60,7 @@ public class JumpGame {
 	private boolean helper(int start, int end, int[] nums) {
 		if (end >= nums.length - 1)
 			return true;
-		if (end == start)
+		if (end == start) // 说明到达不了
 			return false;
 		int father = end;
 		for (int i = start; i <= end; i++) {
