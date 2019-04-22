@@ -55,7 +55,7 @@ public class SimplifyPath {
 
 	public String simplifyPath(String path) {
 		Stack<String> stack = new Stack<>();
-		// 分割成数字
+		// 根据"/"分割成数组
 		String[] paths = path.split("/");
 
 		for (String s : paths) {
