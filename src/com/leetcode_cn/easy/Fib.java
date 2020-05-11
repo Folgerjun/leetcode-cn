@@ -28,12 +28,13 @@ package com.leetcode_cn.easy;
  */
 public class Fib {
     public static void main(String[] args) {
-        int[] arr = new int[101];
+
         int value = fib(5);
         System.out.println("fib(n) : " + value);
 
     }
-    public int fib(int n) {
+    public static int fib(int n) {
+        int[] arr = new int[101];
         if (n == 0) return 0;
         if (n <= 2) return 1;
         arr[1] = 1;
