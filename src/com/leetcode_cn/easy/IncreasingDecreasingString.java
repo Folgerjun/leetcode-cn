@@ -52,7 +52,7 @@ package com.leetcode_cn.easy;
  * s 只包含小写英文字母。
  *
  */
-public class increasingDecreasingString {
+public class IncreasingDecreasingString {
 
     public static void main(String[] args) {
         System.out.println(sortString("aaaabbbbcccc"));
